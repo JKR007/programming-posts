@@ -9,6 +9,21 @@
 
 require 'faker'
 
+User.create(first_name: 'Abdu', last_name: 'Muhamadjonov', email: 'abdu@datarockets.com', password: 'password')
+
+10.times do
+  first_name = Faker::Name.unique.first_name
+  last_name = Faker::Name.unique.last_name
+  email = "#{first_name.downcase}.#{last_name.downcase}@example.com"
+
+  User.create(
+    first_name: first_name,
+    last_name: last_name,
+    email: email,
+    password: 'password'
+  )
+end
+
 100.times do
   Post.create(
     title: Faker::Lorem.unique.sentence(word_count: 8, supplemental: true),

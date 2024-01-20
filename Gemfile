@@ -88,3 +88,6 @@ gem 'faker', '~> 3.2.3'
 
 # Rails forms made easy.
 gem 'simple_form', '~> 5.1.0'
+
+# Devise is a flexible authentication solution for Rails based on Warden
+gem 'devise', '~> 4.8.1'
