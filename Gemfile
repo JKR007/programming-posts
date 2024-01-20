@@ -51,11 +51,16 @@ gem 'bootsnap', require: false
 # gem "sassc-rails"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
-# gem "image_processing", "~> 1.2"
+gem 'image_processing', '~> 1.2'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem 'debug', platforms: %i[mri mingw x64_mingw]
+  # gem 'debug', platforms: %i[mri mingw x64_mingw]
+
+  # Adds step-by-step debugging and stack navigation capabilities to pry using byebug.
+  gem 'pry-byebug', '~> 3.10.1'
+  gem 'pry-doc', '~> 1.5.0'
+  gem 'pry-theme', '~> 1.3.1'
 end
 
 group :development do
@@ -77,3 +82,9 @@ end
 
 # Ruby static code analyzer (a.k.a. linter) and code formatter.
 gem 'rubocop', '~> 1.60', require: false
+
+# Library for generating fake data such as names, addresses, and phone numbers.
+gem 'faker', '~> 3.2.3'
+
+# Rails forms made easy.
+gem 'simple_form', '~> 5.1.0'

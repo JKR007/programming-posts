@@ -1,0 +1,15 @@
+<main class='container'>
+  <%= link_to sanitize('&larr; Back to Posts'), posts_path %>
+
+  <div class='card d-flex'>
+  <div class='card-body'>
+    <h5 class='card-title'><%= @post.title %> </h5>
+    <p class='card-text'>
+      <%= @post.content %>
+      <div class='post-published_at'>
+        <%= @post.published_at.strftime('%B %d, %Y') %>
+      </div>
+    </p>
+  </div>
+</div>
+</main>
