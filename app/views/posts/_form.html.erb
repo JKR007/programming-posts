@@ -1,0 +1,15 @@
+<main class='container'>
+  <%= simple_form_for post do |form| %>
+    <%- unless post.published? %>
+      <%= form.submit 'Publish', class: 'btn btn-success', data: { turbo_confirm: 'Are you sure you want to publish this post? This post will be public.' } %>
+    <% end %>
+
+    <%= form.input :title, class: 'form-control' %>
+    <%= form.rich_text_area :content, class: 'form-control' %>
+
+    <div class='container post__actions'>
+      <%= form.button :submit, value: 'Save', class: 'btn btn-success' %>
+      <%= link_to 'Cancel', posts_path, class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+<main>
