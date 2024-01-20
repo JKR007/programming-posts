@@ -1,0 +1,40 @@
+inherit_from: .rubocop_todo.yml
+
+AllCops:
+  Include:
+    - '**/Gemfile'
+    - '**/Rakefile'
+  Exclude:
+   - 'db/migrate/**/*'
+   - 'bin/*'
+   - 'db/seeds.rb'
+   - 'db/schema.rb'
+   - 'node_modules/**/*'
+  TargetRubyVersion: 2.3
+
+LineLength:
+  Max: 220
+
+Documentation:
+  Enabled: false
+
+Style/BlockComments:
+  Enabled: false
+
+Style/EmptyLinesAroundClassBody:
+  Enabled: false
+
+Style/GuardClause:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Metrics/MethodLength:
+  Max: 18
+
+Metrics/AbcSize:
+  Max: 28
+  
+Lint/EndAlignment:
+  AutoCorrect: true
