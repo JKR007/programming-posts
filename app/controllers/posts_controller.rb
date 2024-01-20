@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  skip_before_action :authenticate_user!, only: %i[index]
   before_action :set_post, only: %i[show edit update destroy]
 
   def index
@@ -24,9 +25,7 @@ class PostsController < ApplicationController
 
   def edit; end
 
-  def update
-    
-  end
+  def update; end
 
   private
 

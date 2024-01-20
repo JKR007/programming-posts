@@ -7,25 +7,39 @@
     <div class='collapse navbar-collapse' id='navbarNav'>
       <ul class='navbar-nav ms-md-auto gap-2'>
         <li class='nav-item rounded'>
-          <%= link_to posts_path, class: 'nav-link active' do %>
+          <%= link_to posts_path, class: 'nav-link' do %>
             <i class='bi bi-book-fill me-2'></i>
             Posts
           <% end %>
         </li>
-        <li class='nav-item rounded'>
-          <a class='nav-link' href='#'><i class='bi bi-people-fill me-2'></i>Network</a>
-        </li>
-        <li class='nav-item dropdown rounded'>
-          <a class='nav-link dropdown-toggle' href='#' id='navbarDropdown' role='button' data-bs-toggle='dropdown' aria-expanded='false'><i class='bi bi-person-fill me-2'></i>Profile</a>
-          <ul class='dropdown-menu dropdown-menu-end' aria-labelledby='navbarDropdown'>
-            <li><a class='dropdown-item' href='#'>Account</a></li>
-            <li><a class='dropdown-item' href='#'>Another action</a></li>
-            <li>
-              <hr class='dropdown-divider'>
-            </li>
-            <li><a class='dropdown-item' href='#'>Logout</a></li>
-          </ul>
-        </li>
+        <% if user_signed_in? %>
+          <li class='nav-item rounded'>
+            <%= link_to network_path, class: 'nav-link' do %>
+              <i class='bi bi-people-fill me-2'></i>
+              Network
+            <% end %>
+          </li>
+          <li class='nav-item dropdown rounded'>
+            <a class='nav-link dropdown-toggle' href='#' id='navbarDropdown' role='button' data-bs-toggle='dropdown' aria-expanded='false'><i class='bi bi-person-fill me-2'></i>Profile</a>
+            <ul class='dropdown-menu dropdown-menu-end' aria-labelledby='navbarDropdown'>
+              <li><a class='dropdown-item' href='#'>My Posts</a></li>
+              <li><a class='dropdown-item' href='#'>My Network</a></li>
+              <li>
+                <hr class='dropdown-divider'>
+              </li>
+              <li>
+                <%= button_to 'Log Out', destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
+              </li>
+            </ul>
+          </li>
+        <% else %>
+          <li class='nav-item rounded'>
+            <%= link_to new_user_session_path, class: 'nav-link' do %>
+              <i class='bi bi-person-fill me-2'></i>
+              Sign In
+            <% end %>
+          </li>
+        <% end %>
       </ul>
     </div>
   </div>

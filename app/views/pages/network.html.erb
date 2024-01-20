@@ -1,0 +1,10 @@
+<div class='container' style='padding-bottom: 60px;'>
+  <div class='wrapper d-flex flex-column align-items-center'>
+    <h4 class='font-monospace'>Follow users to read more posts!</h4>
+    <br/>
+
+    <% @users.each do |user| %>
+      <%= render partial: 'network_user', locals: { user: user } %>
+    <% end %>
+  </div>
+</div>
