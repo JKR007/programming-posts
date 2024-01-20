@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_01_20_141915) do
+ActiveRecord::Schema[7.0].define(version: 2024_01_20_192124) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -59,6 +59,16 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_20_141915) do
     t.datetime "updated_at", null: false
     t.index ["published_at"], name: "index_posts_on_published_at"
     t.index ["title"], name: "index_posts_on_title"
+  end
+
+  create_table "user_relationships", force: :cascade do |t|
+    t.integer "follower_id"
+    t.integer "followee_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["followee_id"], name: "index_user_relationships_on_followee_id"
+    t.index ["follower_id", "followee_id"], name: "index_user_relationships_on_follower_id_and_followee_id", unique: true
+    t.index ["follower_id"], name: "index_user_relationships_on_follower_id"
   end
 
   create_table "users", force: :cascade do |t|
