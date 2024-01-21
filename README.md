@@ -1,24 +1,34 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is the Programming Posts small app. You can create and update Posts. Both creat and update actions on Posts are tracked - saved into database. Once the Post is published, the author's followers will receive email about new post publication, locally it is used `letter-opener` gem for opening emails.
 
-Things you may want to cover:
+To keep simplicity creating users and following users functionalities were not implemented on UI but backend logic for "follow" functionality was implemented. And also, `rails db:seed` provides well enough data for testing purposes.
 
-* Ruby version
+Rubocop was integrated to keep the codebase in standard. More rubocop customization can be applied to keep codebase more clean.
 
-* System dependencies
+RSpec was set up. Model, Controller, Service, Worker and User Mailer specs were added.
 
-* Configuration
+Different kind of ruby gems were used depending on needs during development.
 
-* Database creation
+### Local environment versions
 
-* Database initialization
+* Ruby version - 3.0.3
 
-* How to run the test suite
+* Node version - 21.4.0
 
-* Services (job queues, cache servers, search engines, etc.)
+* Yarn version - 1.22.10
 
-* Deployment instructions
+* PostgreSQL - 13.0
 
-* ...
+> NOTE! - make sure redis server is running locally
+
+#### Once all tools are installed
+
+> 1 - clone the repository\
+> 2 - `bundle install`\
+> 3 - `bin/setup` (yarn optional)\
+> 4 - `rails db:create`\
+> 5 - `rails db:migrate`\
+> 6 - `rails db:seed` (Use following cridentials for best user experience - `abdu@example.com` & `password`)\
+> 7 - `bin/dev` to run app (runs Procfile.dev)
+
