@@ -1,6 +1,8 @@
 class Post < ApplicationRecord
-  has_rich_text :content
+  include Trackable
 
+  has_rich_text :content
+  has_many :histories, as: :trackable
   belongs_to :author, class_name: 'User', foreign_key: 'user_id', optional: true
 
   validates :title, presence: true
