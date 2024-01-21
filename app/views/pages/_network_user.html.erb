@@ -2,12 +2,13 @@
   <%= image_tag 'img_avatar.png', alt: 'User Profile Image', class: 'card-img-top', style: 'height: 220px;' %>
   <div class='card-body'>
     <h5 class='card-title'>
-      <%= "#{user.first_name} #{user.last_name}" %>
+      <%= network_user.first_name %>
+      <%= "#{network_user.first_name} #{network_user.last_name}" %>
     </h5>
     <p class='card-text'>
-      <%= user.email %>
+      <%= network_user.email %>
     </p>
-    <% if current_user.following?(user) %>
+    <% if current_user.following?(network_user) %>
       <a href='#' class='btn btn-primary'>Unfollow</a>
     <% else %>
       <a href='#' class='btn btn-primary'>Follow</a>

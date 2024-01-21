@@ -1,15 +1,19 @@
-<main class='container'>
+<main class='wrapper'>
   <%= simple_form_for post do |form| %>
-    <%- unless post.published? %>
-      <%= form.submit 'Publish', class: 'btn btn-success', data: { turbo_confirm: 'Are you sure you want to publish this post? This post will be public.' } %>
-    <% end %>
-
-    <%= form.input :title, class: 'form-control' %>
-    <%= form.rich_text_area :content, class: 'form-control' %>
-
-    <div class='container post__actions'>
-      <%= form.button :submit, value: 'Save', class: 'btn btn-success' %>
-      <%= link_to 'Cancel', posts_path, class: 'btn btn-primary' %>
+    <div class='mb-3'>
+      <%- unless post.published? %>
+        <%= form.submit 'Publish', class: 'btn btn-outline-success', data: { turbo_confirm: 'Are you sure you want to publish this post? This post will be public.' } %>
+      <% end %>
+    </div>
+    <div class='mb-3'>
+      <%= form.input :title, label: false, placeholder: 'Post title...', class: 'form-control' %>
+    </div>
+    <div class='mb-3'>
+      <%= form.rich_text_area :content, placeholder: 'Post content...', class: 'form-control' %>
+    </div>
+    <div class='mb-3'>
+      <%= form.button :submit, value: 'Save', class: 'btn btn-outline-success' %>
+      <%= link_to 'Cancel', posts_path, class: 'btn btn-outline-primary' %>
     </div>
   <% end %>
 <main>

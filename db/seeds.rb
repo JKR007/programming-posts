@@ -9,8 +9,11 @@
 
 require 'faker'
 
+puts "============== CREATING MAIN USER - ABDU START =============="
 abdu = User.create(first_name: 'Abdu', last_name: 'Muhamadjonov', email: 'abdu@example.com', password: 'password')
+puts "============== CREATING MAIN USER ABUD DONE =============="
 
+puts "============== CREATING USERS WITH FOLLOWERS START =============="
 10.times do |number|
   first_name = Faker::Name.unique.first_name
   last_name = Faker::Name.unique.last_name
@@ -24,10 +27,15 @@ abdu = User.create(first_name: 'Abdu', last_name: 'Muhamadjonov', email: 'abdu@e
   )
   number.odd? ? abdu.follow(user.id) : user.follow(abdu.id)
 end
+puts "============== CREATING USERS WITH FOLLOWERS END =============="
 
-100.times do
+
+puts "============== CREATING POSTS WITH AUTHORS START =============="
+100.times do |number|
   Post.create(
     title: Faker::Lorem.unique.sentence(word_count: 8, supplemental: true),
+    user_id: number % 5 == 0 ? abdu.id : User.all_except(abdu).sample.id,
     published_at: Time.now.in_time_zone('Asia/Tashkent')
   )
 end
+puts "============== CREATING POSTS WITH AUTHORS END =============="

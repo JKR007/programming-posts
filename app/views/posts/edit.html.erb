@@ -1,10 +1,10 @@
 <main class='container'>
   <div class='mb-3'>
-    <%= link_to sanitize('&larr; Back to Posts'), posts_path, class: 'btn btn-outline-primary' %>
+    <%= link_to sanitize('&larr; Back to My Posts'), my_posts_path, class: 'btn btn-outline-primary' %>
   </div>
 
   <div class='mb-3'>
-    <h4>New Post</h4>
+    <h4>Edit Post</h4>
   </div>
 
   <%= render 'form', post: @post %>

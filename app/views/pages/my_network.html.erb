@@ -1,0 +1,19 @@
+<div class='container' style='padding-bottom: 60px;'>
+  <div class='wrapper d-flex flex-column align-items-center'>
+    <h4 class='font-monospace'>My Network Connections</h4>
+    <br/>
+
+    <div class='my-network-connections'>
+      <div class='row'>
+        <div class='col-sm-4' id='left'>
+          <%= render partial: 'network_user', collection: @followers %>
+        </div>
+      </div>
+      <div class='row'>
+        <div class='col-sm-4' id='right'>
+          <%= render partial: 'network_user', collection: @followees %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
