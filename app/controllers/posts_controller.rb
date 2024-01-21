@@ -17,6 +17,8 @@ class PostsController < ApplicationController
     update_resource(@post)
 
     if @post.save
+      # Moved the logic to model
+      # NotifyFollowersAboutNewPostManager.new(current_user, @post).proccess
       redirect_to posts_path, notice: 'Post was successfully created!'
     else
       render :new
@@ -42,10 +44,8 @@ class PostsController < ApplicationController
   end
 
   def update_resource(resource)
-    if publish?
-      resource.published_at = Time.now.in_time_zone('Asia/Tashkent')
-      resource.author = current_user
-    end
+    resource.author = current_user
+    resource.published_at = Time.now.in_time_zone('Asia/Tashkent') if publish?
   end
 
   def post_params

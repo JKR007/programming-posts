@@ -61,6 +61,9 @@ group :development, :test do
   gem 'pry-byebug', '~> 3.10.1'
   gem 'pry-doc', '~> 1.5.0'
   gem 'pry-theme', '~> 1.3.1'
+
+  # Shim to load environment variables from .env into ENV in development.
+  gem 'dotenv', '~> 2.8.1', require: 'dotenv/load'
 end
 
 group :development do
@@ -72,6 +75,7 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+  gem 'letter_opener', '~> 1.8.1'
 end
 
 group :test do
@@ -91,3 +95,9 @@ gem 'simple_form', '~> 5.1.0'
 
 # Devise is a flexible authentication solution for Rails based on Warden
 gem 'devise', '~> 4.8.1'
+
+# Simple, efficient background processing for Ruby.
+gem 'sidekiq', '~> 7.2.1'
+
+# An email validator for Rails 3+.
+gem 'email_validator', '~> 2.2.4'

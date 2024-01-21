@@ -13,6 +13,10 @@ class User < ApplicationRecord
 
   scope :all_except, ->(user) { where.not(id: user) }
 
+  def full_name
+    [first_name, last_name].join(' ')
+  end
+
   # Follows a user
   def follow(followee_id)
     followed_users.create(followee_id: followee_id)
