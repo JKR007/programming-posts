@@ -10,7 +10,7 @@ AllCops:
    - 'db/seeds.rb'
    - 'db/schema.rb'
    - 'node_modules/**/*'
-  TargetRubyVersion: 2.3
+  TargetRubyVersion: 3.0.3
 
 LineLength:
   Max: 220
@@ -38,3 +38,7 @@ Metrics/AbcSize:
   
 Lint/EndAlignment:
   AutoCorrect: true
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
