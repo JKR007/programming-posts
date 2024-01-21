@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  include ActiveStorage::Blob::Analyzable
+
   skip_before_action :authenticate_user!, only: %i[index]
   before_action :set_post, only: %i[show edit update destroy]
 

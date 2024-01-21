@@ -64,6 +64,18 @@ group :development, :test do
 
   # Shim to load environment variables from .env into ENV in development.
   gem 'dotenv', '~> 2.8.1', require: 'dotenv/load'
+
+  # Rails testing library
+  gem 'rspec-rails', '~> 6.1.0'
+
+  # Fixtures replacement with a straightforward definition syntax
+  gem 'factory_bot_rails', '~> 6.4.3'
+
+  # Library for generating fake data such as names, addresses, and phone numbers.
+  gem 'faker', '~> 3.2.3'
+
+  # A gem providing "time travel" and "time freezing" capabilities,
+  gem 'timecop', '~> 0.9.8'
 end
 
 group :development do
@@ -81,14 +93,23 @@ end
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem 'capybara'
+
+  gem 'database_cleaner', '~> 2.0.2'
+
   gem 'selenium-webdriver'
+
+  # RSpec for testing sidekiq worker and jobs
+  gem 'rspec-sidekiq', '~> 4.1.0'
+
+  # RSpec libraries
+  gem 'shoulda-callback-matchers', '~> 1.1.4'
+  gem 'shoulda-matchers', '~> 5.3.0'
+
+  gem 'rails-controller-testing', '~> 1.0.5'
 end
 
 # Ruby static code analyzer (a.k.a. linter) and code formatter.
 gem 'rubocop', '~> 1.60', require: false
-
-# Library for generating fake data such as names, addresses, and phone numbers.
-gem 'faker', '~> 3.2.3'
 
 # Rails forms made easy.
 gem 'simple_form', '~> 5.1.0'
