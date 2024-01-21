@@ -19,11 +19,21 @@
               Network
             <% end %>
           </li>
+          <li class='nav-item rounded'>
+            <%= link_to new_post_path, class: 'nav-link' do %>
+              <i class='bi bi-file-plus-fill me-2'></i>
+              Add Post
+            <% end %>
+          </li>
           <li class='nav-item dropdown rounded'>
             <a class='nav-link dropdown-toggle' href='#' id='navbarDropdown' role='button' data-bs-toggle='dropdown' aria-expanded='false'><i class='bi bi-person-fill me-2'></i>Profile</a>
             <ul class='dropdown-menu dropdown-menu-end' aria-labelledby='navbarDropdown'>
-              <li><a class='dropdown-item' href='#'>My Posts</a></li>
-              <li><a class='dropdown-item' href='#'>My Network</a></li>
+              <li>
+                <%= link_to 'My Posts', my_posts_path, class: 'dropdown-item' %>
+              </li>
+              <li>
+                <%= link_to 'My Network', my_network_path, class: 'dropdown-item' %>
+              </li>
               <li>
                 <hr class='dropdown-divider'>
               </li>

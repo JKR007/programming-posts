@@ -1,0 +1,8 @@
+<div class='container' style='padding-bottom: 60px;'>
+  <div class='wrapper flex-column align-items-center'>
+    <h4 class='font-monospace'>My Posts</h4>
+    <br/>
+
+    <%= render partial: 'posts/post', collection: @posts, locals: { my_posts_page: true } %>
+  </div>
+</div>

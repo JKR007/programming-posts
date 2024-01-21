@@ -7,6 +7,8 @@ class User < ApplicationRecord
   has_many :following_users, foreign_key: :followee_id, class_name: 'UserRelationship'
   has_many :followers, through: :following_users, dependent: :destroy
 
+  has_many :posts
+
   validates :first_name, :last_name, :email, presence: true
 
   scope :all_except, ->(user) { where.not(id: user) }

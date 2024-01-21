@@ -19,13 +19,17 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to posts_path, notice: 'Post was successfully created!'
     else
-      render :new, status: :unprocessable_entity
+      render :new
     end
   end
 
   def edit; end
 
-  def update; end
+  def update
+    @post.update(post_params)
+
+    redirect_to posts_path, notice: 'Post was successfully updated!'
+  end
 
   private
 
@@ -38,7 +42,10 @@ class PostsController < ApplicationController
   end
 
   def update_resource(resource)
-    resource.published_at = Time.now.in_time_zone('Asia/Tashkent') if publish?
+    if publish?
+      resource.published_at = Time.now.in_time_zone('Asia/Tashkent')
+      resource.author = current_user
+    end
   end
 
   def post_params

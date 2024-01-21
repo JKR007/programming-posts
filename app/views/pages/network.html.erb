@@ -3,8 +3,6 @@
     <h4 class='font-monospace'>Follow users to read more posts!</h4>
     <br/>
 
-    <% @users.each do |user| %>
-      <%= render partial: 'network_user', locals: { user: user } %>
-    <% end %>
+    <%= render partial: 'network_user', collection: @users %>
   </div>
 </div>
