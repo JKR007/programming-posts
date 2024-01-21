@@ -3,7 +3,7 @@
     <h5 class='card-title'><%= post.title %> </h5>
     <p class='card-text'>
       <div class='post-published_at'>
-        <%= post.published_at.strftime('%B %d, %Y') %>
+        <%= (post.published_at || post.created_at).strftime('%B %d, %Y') %>
       </div>
     </p>
 

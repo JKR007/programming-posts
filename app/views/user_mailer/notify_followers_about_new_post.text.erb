@@ -1,0 +1,12 @@
+Hi from Programming Posts!
+
+<%= @sender.full_name %> has created new Post
+
+<%= link_to 'Click on to check the post', post_url(@post), target: '_blank' %>
+
+<%= @post.title %>
+
+Regards,
+Programming Posts Team
+
+<%= Time.now.in_time_zone('Asia/Tashkent').strftime('%Y') %> Programming Posts. All rights reserved.
