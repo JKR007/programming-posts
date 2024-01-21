@@ -93,6 +93,9 @@ end
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem 'capybara'
+
+  gem 'database_cleaner', '~> 2.0.2'
+
   gem 'selenium-webdriver'
 
   # RSpec for testing sidekiq worker and jobs
@@ -101,6 +104,8 @@ group :test do
   # RSpec libraries
   gem 'shoulda-callback-matchers', '~> 1.1.4'
   gem 'shoulda-matchers', '~> 5.3.0'
+
+  gem 'rails-controller-testing', '~> 1.0.5'
 end
 
 # Ruby static code analyzer (a.k.a. linter) and code formatter.
