@@ -58,9 +58,10 @@ group :development, :test do
   # gem 'debug', platforms: %i[mri mingw x64_mingw]
 
   # Adds step-by-step debugging and stack navigation capabilities to pry using byebug.
-  gem 'pry-byebug', '~> 3.10.1'
-  gem 'pry-doc', '~> 1.5.0'
-  gem 'pry-theme', '~> 1.3.1'
+  gem 'debug'
+  # gem 'pry-byebug', '~> 3.10.1'
+  # gem 'pry-doc', '~> 1.5.0'
+  # gem 'pry-theme', '~> 1.3.1'
 
   # Shim to load environment variables from .env into ENV in development.
   gem 'dotenv', '~> 2.8.1', require: 'dotenv/load'

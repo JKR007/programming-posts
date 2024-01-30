@@ -10,7 +10,7 @@ RSpec.describe NotifyFollowersAboutNewPostWorker do
   let!(:post) { create(:post, :published, title: 'Post For Notify', author: user) }
 
   let!(:worker) { described_class.new }
-  let(:performer) { -> (sender_id, post_id, email_address) { worker.perform(sender_id, post_id, email_address) } }
+  let(:performer) { ->(sender_id, post_id, email_address) { worker.perform(sender_id, post_id, email_address) } }
 
   it 'is processed in default queue' do
     expect(NotifyFollowersAboutNewPostWorker).to be_processed_in :default

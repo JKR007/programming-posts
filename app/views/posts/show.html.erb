@@ -9,7 +9,7 @@
     <p class='card-text'>
       <%= @post.content %>
       <div class='post-published_at'>
-        <%= @post.published_at.strftime('%B %d, %Y') %>
+        <%= format_date(@post.published_at) %>
       </div>
     </p>
   </div>
