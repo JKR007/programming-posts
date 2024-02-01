@@ -20,13 +20,14 @@ Different kind of ruby gems were used depending on needs during development.
 
 * PostgreSQL - 13.0
 
-> NOTE! - make sure redis server is running locally
+> NOTE! - make sure redis server and sidekiq are running locally
 
 #### Once all tools are installed
 
 > 1 - clone the repository\
 > 2 - `bundle install`\
 > 3 - `bin/setup` (yarn optional)\
+> 4 - `createuser programming_posts -s`\
 > 4 - `rails db:create`\
 > 5 - `rails db:migrate`\
 > 6 - `rails db:seed` (Use following cridentials for best user experience - `abdu@example.com` & `password`)\

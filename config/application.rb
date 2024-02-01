@@ -8,6 +8,8 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+require_relative '../lib/middleware/hello_from_middleware'
+
 module ProgrammingPosts
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
@@ -22,5 +24,6 @@ module ProgrammingPosts
     # config.eager_load_paths << Rails.root.join("extras")
 
     config.active_job.queue_adapter = :sidekiq
+    config.middleware.use Middleware::HelloFromModdleware
   end
 end
